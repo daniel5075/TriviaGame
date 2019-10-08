@@ -23,11 +23,11 @@ h1{
 h2{
     text-align:center;
 }
-p{
+/* p{
     text-align:center;
-}
+} */
 
-#answers{
+#answers, p{
     text-align:center;
     font-size:20pt;
     
