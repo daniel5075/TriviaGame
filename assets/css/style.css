@@ -11,11 +11,24 @@ body{
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
 }
+
 h1{
     text-align: center;
     font-size: 40pt;
     text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
     font-family: 'Share Tech Mono', monospace;
+}
+
+h2{
+    text-align:center;
+}
+p{
+    text-align:center;
+}
+
+#answers{
+    text-align:center;
+    font-size:20pt;
+    
 }
