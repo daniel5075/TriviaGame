@@ -21,7 +21,6 @@ var triviaQuestions = [
         answerB: "Robert Frost",
         answerC: "Alexander Flemming",
         answerD: "Leonardo DaVinci"
-
     },
     {
         question: "Registered on March 15, 1985, which of these was the first domain name on the internet?",
@@ -73,6 +72,17 @@ function countdown() {
     counter = setInterval(decrement, 1000);
 };
 
+// function questionAndAnswers() {
+//     clearImage()
+//     countdown()
+//     var qQue = triviaQuestions[currentQuestion]
+//     $("#show-question").html("<h2>" + qQue.question + "</h2>");
+//     $("#A").html(qQue.answerA)
+//     $("#B").html(qQue.answerB)
+//     $("#C").html(qQue.answerC)
+//     $("#D").html(qQue.answerD)
+// };
+
 //for counting down
 function decrement() {
     $("#show-number").html(count);
@@ -96,22 +106,22 @@ function stop() {
 };
 
 //display question and buttons
-function questionAndAnswers() {
-    clearImage()
-    countdown()
-    var qQue = triviaQuestions[currentQuestion]
-    $("#show-question").html("<h2>" + qQue.question + "</h2>");
-    $("#A").html(qQue.answerA)
-    $("#B").html(qQue.answerB)
-    $("#C").html(qQue.answerC)
-    $("#D").html(qQue.answerD)
-};
+// function questionAndAnswers() {
+//     clearImage()
+//     countdown()
+//     var qQue = triviaQuestions[currentQuestion]
+//     $("#show-question").html("<h2>" + qQue.question + "</h2>");
+//     $("#A").html(qQue.answerA)
+//     $("#B").html(qQue.answerB)
+//     $("#C").html(qQue.answerC)
+//     $("#D").html(qQue.answerD)
+// };
 
 function nextQuestion() {
     currentQuestion++
-    // count = 5
+    count = 5
     if (currentQuestion <= lastQ) {
-        countdown()
+        // countdown()
         questionAndAnswers()
     }
     else {
@@ -175,10 +185,24 @@ function stop2() {
 };
 
 
+
 //display correct answer if wrong or "correct" if right or "out of time" and display gif
 //automatically move to next question
 //switch question when time runs out or on answer click
 //once all questions answered display -correct answers - incorrect answers -and unanswered.  Start over button
 //trivia questions
 //running total of wins/losses when clicked
-questionAndAnswers()
+$("#startButton").on("click", function () {
+    // function questionAndAnswers() {
+    $("#startButton").hide();
+    clearImage();
+    countdown();
+    var qQue = triviaQuestions[currentQuestion];
+    $("#show-question").html("<h2>" + qQue.question + "</h2>");
+    $("#A").html(qQue.answerA);
+    $("#B").html(qQue.answerB);
+    $("#C").html(qQue.answerC);
+    $("#D").html(qQue.answerD);
+});
+
+// questionAndAnswers()
