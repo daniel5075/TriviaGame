@@ -27,7 +27,7 @@ var triviaQuestions = [
         question: "Registered on March 15, 1985, which of these was the first domain name on the internet?",
         correctAnswer: "C",
         writtenAnswer: "Symbolics.com",
-        img: "assets/images/symbolics.jpg",
+        img: "assets/images/Symbolics.jpg",
         altP: "picture of original sybmolics website",
         answerA: "ARPA.net",
         answerB: "Northrop.com",
@@ -39,7 +39,7 @@ var triviaQuestions = [
         correctAnswer: "B",
         writtenAnswer: "Confinity",
         img: "assets/images/paypal.png",
-        altP: "Styleized Paypal",
+        altP: "Stylized Paypal",
         answerA: "Coinbase",
         answerB: "Confinity",
         answerC: "InstaMoney",
@@ -100,7 +100,6 @@ function decrement() {
         $("#answer-image").html("<img src=" + triviaQuestions[currentQuestion].img + "><alt =" + triviaQuestions[currentQuestion].altP + ">");
         clearContents();
         countup();
-        console.log("here i am");
     };
     count--
 };
@@ -143,6 +142,7 @@ function checkAnswer(answer) {
         wrongAnswer++;
     }
     $("#answer-image").html("<img src=" + triviaQuestions[currentQuestion].img + "><alt =" + triviaQuestions[currentQuestion].altP + ">");
+
     stop();
     clearContents();
     countup();
