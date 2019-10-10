@@ -2,7 +2,7 @@
 var counter;
 var counter2;
 var count2 = 0;
-var count = 5;
+var count = 15;
 var answerA = document.getElementById("A");
 var answerB = document.getElementById("B");
 var answerC = document.getElementById("C");
@@ -72,30 +72,30 @@ function countdown() {
     counter = setInterval(decrement, 1000);
 };
 
-// function questionAndAnswers() {
-//     clearImage()
-//     countdown()
-//     var qQue = triviaQuestions[currentQuestion]
-//     $("#show-question").html("<h2>" + qQue.question + "</h2>");
-//     $("#A").html(qQue.answerA)
-//     $("#B").html(qQue.answerB)
-//     $("#C").html(qQue.answerC)
-//     $("#D").html(qQue.answerD)
-// };
+//display questions and answers
+function questionAndAnswers() {
+    clearImage();
+    countdown();
+    var qQue = triviaQuestions[currentQuestion];
+    $("#show-question").html("<h2>" + qQue.question + "</h2>");
+    $("#A").html(qQue.answerA);
+    $("#B").html(qQue.answerB);
+    $("#C").html(qQue.answerC);
+    $("#D").html(qQue.answerD);
+};
 
 //for counting down
 function decrement() {
-    $("#show-number").html(count);
+    $("#show-number").html("Time Left: " + count);
     if (count === 0) {
-        stop()
-        count = 5
-        unanswered++
-        $("#show-question").html("<h2> Bummer, You're Out of Time </h2><p> The correct answer was: " + triviaQuestions[currentQuestion].writtenAnswer + "</p>")
-        $("#answer-image").html("<img src=" + triviaQuestions[currentQuestion].img + ">")
-        clearContents()
-        countup()
-        console.log("here i am")
-        // nextQuestion()
+        stop();
+        count = 15;
+        unanswered++;
+        $("#show-question").html("<h2> Bummer, you're out of time</h2><p> The correct answer was: " + triviaQuestions[currentQuestion].writtenAnswer + "</p>")
+        $("#answer-image").html("<img src=" + triviaQuestions[currentQuestion].img + ">");
+        clearContents();
+        countup();
+        console.log("here i am");
     };
     count--
 };
@@ -105,65 +105,58 @@ function stop() {
     clearInterval(counter);
 };
 
-//display question and buttons
-// function questionAndAnswers() {
-//     clearImage()
-//     countdown()
-//     var qQue = triviaQuestions[currentQuestion]
-//     $("#show-question").html("<h2>" + qQue.question + "</h2>");
-//     $("#A").html(qQue.answerA)
-//     $("#B").html(qQue.answerB)
-//     $("#C").html(qQue.answerC)
-//     $("#D").html(qQue.answerD)
-// };
-
+//keep track of number of questions an display next question
 function nextQuestion() {
-    currentQuestion++
-    count = 5
+    currentQuestion++;
+    count = 15;
     if (currentQuestion <= lastQ) {
-        // countdown()
-        questionAndAnswers()
+        questionAndAnswers();
     }
     else {
-        clearContents()
-        clearImage()
-        finalScore()
-        stop()
+        clearContents();
+        clearImage();
+        finalScore();
+        stop();
     }
 };
 
+//display final score
 function finalScore() {
-    clearContents()
-    clearImage()
+    clearContents();
+    clearImage();
     $("#show-question").html("<h2> All done, here's how you did!</h2> <p>Correct Answers: " + rightAnswer + "</p><p>Incorrect Answers: " + wrongAnswer + "</p> <p>Unanswered: " + unanswered + "</p>")
 }
 
+//check if correct answer was chosen
 function checkAnswer(answer) {
     if (answer === triviaQuestions[currentQuestion].correctAnswer) {
-        $("#show-question").html("<h2> Correct!! </h2>")
-        rightAnswer++
+        $("#show-question").html("<h2> Correct!! </h2>");
+        rightAnswer++;
     }
     else {
         $("#show-question").html("<h2> Does Not Compute!! </h2><p> The correct answer was: " + triviaQuestions[currentQuestion].writtenAnswer + "</p>")
-        wrongAnswer++
+        wrongAnswer++;
     }
-    $("#answer-image").html("<img src=" + triviaQuestions[currentQuestion].img + ">")
-    stop()
-    clearContents()
-    countup()
+    $("#answer-image").html("<img src=" + triviaQuestions[currentQuestion].img + ">");
+    stop();
+    clearContents();
+    countup();
 }
 
+//clear screen and answers
 function clearContents() {
-    $("#A").html("")
-    $("#B").html("")
-    $("#C").html("")
-    $("#D").html("")
+    $("#A").html("");
+    $("#B").html("");
+    $("#C").html("");
+    $("#D").html("");
 }
 
+//clear image between switches
 function clearImage() {
-    $("#answer-image").empty()
+    $("#answer-image").empty();
 }
 
+//counter for between questions
 function countup() {
     clearInterval(counter2);
     counter2 = setInterval(increment, 1000);
@@ -172,28 +165,20 @@ function countup() {
 //for counting up
 function increment() {
     if (count2 === 3) {
-        stop2()
-        count2 = 0
-        nextQuestion()
+        stop2();
+        count2 = 0;
+        nextQuestion();
     };
-    count2++
+    count2++;
 };
 
-
+//stop and clear counter
 function stop2() {
     clearInterval(counter2);
 };
 
-
-
-//display correct answer if wrong or "correct" if right or "out of time" and display gif
-//automatically move to next question
-//switch question when time runs out or on answer click
-//once all questions answered display -correct answers - incorrect answers -and unanswered.  Start over button
-//trivia questions
-//running total of wins/losses when clicked
+//Start game on click
 $("#startButton").on("click", function () {
-    // function questionAndAnswers() {
     $("#startButton").hide();
     clearImage();
     countdown();
@@ -204,5 +189,3 @@ $("#startButton").on("click", function () {
     $("#C").html(qQue.answerC);
     $("#D").html(qQue.answerD);
 });
-
-// questionAndAnswers()
