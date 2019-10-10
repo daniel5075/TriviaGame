@@ -17,6 +17,7 @@ var triviaQuestions = [
         correctAnswer: "A",
         writtenAnswer: "Charles Babbage",
         img: "assets/images/Babbage.jpg",
+        altP: "Charles Babbage",
         answerA: "Charles Babbage",
         answerB: "Robert Frost",
         answerC: "Alexander Flemming",
@@ -27,6 +28,7 @@ var triviaQuestions = [
         correctAnswer: "C",
         writtenAnswer: "Symbolics.com",
         img: "assets/images/symbolics.jpg",
+        altP: "picture of original sybmolics website",
         answerA: "ARPA.net",
         answerB: "Northrop.com",
         answerC: "Symbolics.com",
@@ -37,6 +39,7 @@ var triviaQuestions = [
         correctAnswer: "B",
         writtenAnswer: "Confinity",
         img: "assets/images/paypal.png",
+        altP: "Styleized Paypal",
         answerA: "Coinbase",
         answerB: "Confinity",
         answerC: "InstaMoney",
@@ -47,6 +50,7 @@ var triviaQuestions = [
         correctAnswer: "D",
         writtenAnswer: "twttr",
         img: "assets/images/twitter.png",
+        altP: "Twitter Bluebird",
         answerA: "tweeter",
         answerB: "Turtle",
         answerC: "MessageMe",
@@ -57,6 +61,7 @@ var triviaQuestions = [
         correctAnswer: "C",
         writtenAnswer: "August 16, 1995",
         img: "assets/images/internetexplorer.png",
+        altP: "image of orignal internet explorer",
         answerA: "June 7, 1992",
         answerB: "October 28, 1998",
         answerC: "August 16, 1995",
@@ -92,7 +97,7 @@ function decrement() {
         count = 15;
         unanswered++;
         $("#show-question").html("<h2> Bummer, you're out of time</h2><p> The correct answer was: " + triviaQuestions[currentQuestion].writtenAnswer + "</p>")
-        $("#answer-image").html("<img src=" + triviaQuestions[currentQuestion].img + ">");
+        $("#answer-image").html("<img src=" + triviaQuestions[currentQuestion].img + "><alt =" + triviaQuestions[currentQuestion].altP + ">");
         clearContents();
         countup();
         console.log("here i am");
@@ -137,7 +142,7 @@ function checkAnswer(answer) {
         $("#show-question").html("<h2> Does Not Compute!! </h2><p> The correct answer was: " + triviaQuestions[currentQuestion].writtenAnswer + "</p>")
         wrongAnswer++;
     }
-    $("#answer-image").html("<img src=" + triviaQuestions[currentQuestion].img + ">");
+    $("#answer-image").html("<img src=" + triviaQuestions[currentQuestion].img + "><alt =" + triviaQuestions[currentQuestion].altP + ">");
     stop();
     clearContents();
     countup();
