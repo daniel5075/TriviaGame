@@ -185,12 +185,6 @@ function stop2() {
 //Start game on click
 $("#startButton").on("click", function () {
     $("#startButton").hide();
-    clearImage();
-    countdown();
-    var qQue = triviaQuestions[currentQuestion];
-    $("#show-question").html("<h2>" + qQue.question + "</h2>");
-    $("#A").html(qQue.answerA);
-    $("#B").html(qQue.answerB);
-    $("#C").html(qQue.answerC);
-    $("#D").html(qQue.answerD);
+    questionAndAnswers();
+    return false;
 });
