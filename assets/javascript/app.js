@@ -81,6 +81,9 @@ function countdown() {
 function questionAndAnswers() {
     clearImage();
     countdown();
+    decrement();
+
+
     var qQue = triviaQuestions[currentQuestion];
     $("#show-question").html("<h2>" + qQue.question + "</h2>");
     $("#A").html(qQue.answerA);
